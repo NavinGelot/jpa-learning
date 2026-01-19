@@ -3,6 +3,8 @@ package com.jpa.jpa_demo.domain;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "departments")
@@ -27,4 +29,8 @@ public class Department {
 
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+//    // ONE-TO-MANY: One department can have MANY employees
+//    @OneToMany(mappedBy = "department")  // "department" refers to field in Employee
+//    private List<Employee> employees = new ArrayList<>();
 }

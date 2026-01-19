@@ -36,8 +36,8 @@ public class Employee {
     @Column(name = "position")
     private String position;
 
-    @Column(name = "department_id")
-    private Long departmentId;  // Just a foreign key column, not a relationship yet
+//    @Column(name = "department_id")
+//    private Long departmentId;  // Just a foreign key column, not a relationship yet
 
     @Column(name = "manager_id")
     private Long managerId;     // Just a foreign key column, not a relationship yet
@@ -47,4 +47,10 @@ public class Employee {
 
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+    // MANY-TO-ONE: Many employees can belong to ONE department
+    @ManyToOne
+    @JoinColumn(name = "department_id")  // Foreign key column
+    private Department department;  // it's an object, not just ID!
+
 }
