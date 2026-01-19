@@ -30,7 +30,8 @@ public class Department {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-//    // ONE-TO-MANY: One department can have MANY employees
-//    @OneToMany(mappedBy = "department")  // "department" refers to field in Employee
-//    private List<Employee> employees = new ArrayList<>();
+    // ONE-TO-MANY: One department can have MANY employees
+    @OneToMany(mappedBy = "department", fetch = FetchType.LAZY)
+    private List<Employee> employees = new ArrayList<>();
+
 }

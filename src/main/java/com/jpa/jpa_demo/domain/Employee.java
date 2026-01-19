@@ -52,5 +52,4 @@ public class Employee {
     @ManyToOne
     @JoinColumn(name = "department_id")  // Foreign key column
     private Department department;  // it's an object, not just ID!
-
 }
