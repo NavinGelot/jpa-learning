@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <!-- Insert Departments -->
+    <changeSet id="insert-departments" author="your-name">
+        <insert tableName="departments">
+            <column name="name" value="Engineering"/>
+            <column name="code" value="ENG"/>
+            <column name="description" value="Software Development and Engineering Department"/>
+        </insert>
+        <insert tableName="departments">
+            <column name="name" value="Human Resources"/>
+            <column name="code" value="HR"/>
+            <column name="description" value="Human Resources and Talent Management"/>
+        </insert>
+        <insert tableName="departments">
+            <column name="name" value="Sales"/>
+            <column name="code" value="SALES"/>
+            <column name="description" value="Sales and Business Development"/>
+        </insert>
+        <insert tableName="departments">
+            <column name="name" value="Marketing"/>
+            <column name="code" value="MKT"/>
+            <column name="description" value="Marketing and Communications"/>
+        </insert>
+        <insert tableName="departments">
+            <column name="name" value="Finance"/>
+            <column name="code" value="FIN"/>
+            <column name="description" value="Finance and Accounting Department"/>
+        </insert>
+    </changeSet>
+
+    <!-- Insert Projects -->
+    <changeSet id="insert-projects" author="your-name">
+        <insert tableName="projects">
+            <column name="name" value="E-Commerce Platform"/>
+            <column name="description" value="Development of new e-commerce platform"/>
+            <column name="start_date" value="2024-01-01"/>
+            <column name="end_date" value="2024-12-31"/>
+            <column name="budget" value="500000.00"/>
+            <column name="status" value="ACTIVE"/>
+        </insert>
+        <insert tableName="projects">
+            <column name="name" value="Mobile App Development"/>
+            <column name="description" value="iOS and Android mobile application"/>
+            <column name="start_date" value="2024-03-01"/>
+            <column name="end_date" value="2024-09-30"/>
+            <column name="budget" value="250000.00"/>
+            <column name="status" value="ACTIVE"/>
+        </insert>
+        <insert tableName="projects">
+            <column name="name" value="CRM System Upgrade"/>
+            <column name="description" value="Upgrade customer relationship management system"/>
+            <column name="start_date" value="2024-02-15"/>
+            <column name="end_date" value="2024-08-15"/>
+            <column name="budget" value="150000.00"/>
+            <column name="status" value="IN_PROGRESS"/>
+        </insert>
+        <insert tableName="projects">
+            <column name="name" value="Data Analytics Platform"/>
+            <column name="description" value="Big data analytics and reporting system"/>
+            <column name="start_date" value="2024-04-01"/>
+            <column name="budget" value="300000.00"/>
+            <column name="status" value="PLANNING"/>
+        </insert>
+        <insert tableName="projects">
+            <column name="name" value="Website Redesign"/>
+            <column name="description" value="Corporate website redesign project"/>
+            <column name="start_date" value="2023-11-01"/>
+            <column name="end_date" value="2024-01-31"/>
+            <column name="budget" value="80000.00"/>
+            <column name="status" value="COMPLETED"/>
+        </insert>
+    </changeSet>
+
+    <!-- Insert Employees (without department/manager references first) -->
+    <changeSet id="insert-employees-initial" author="your-name">
+        <insert tableName="employees">
+            <column name="first_name" value="John"/>
+            <column name="last_name" value="Doe"/>
+            <column name="email" value="john.doe@company.com"/>
+            <column name="phone" value="+1234567890"/>
+            <column name="salary" value="85000.00"/>
+            <column name="hire_date" value="2020-03-15"/>
+            <column name="position" value="Software Engineer"/>
+            <column name="department_id" value="1"/>
+        </insert>
+        <insert tableName="employees">
+            <column name="first_name" value="Jane"/>
+            <column name="last_name" value="Smith"/>
+            <column name="email" value="jane.smith@company.com"/>
+            <column name="phone" value="+1234567891"/>
+            <column name="salary" value="95000.00"/>
+            <column name="hire_date" value="2019-06-10"/>
+            <column name="position" value="Senior Software Engineer"/>
+            <column name="department_id" value="1"/>
+        </insert>
+        <insert tableName="employees">
+            <column name="first_name" value="Robert"/>
+            <column name="last_name" value="Johnson"/>
+            <column name="email" value="robert.johnson@company.com"/>
+            <column name="phone" value="+1234567892"/>
+            <column name="salary" value="110000.00"/>
+            <column name="hire_date" value="2018-01-20"/>
+            <column name="position" value="Engineering Manager"/>
+            <column name="department_id" value="1"/>
+        </insert>
+        <insert tableName="employees">
+            <column name="first_name" value="Emily"/>
+            <column name="last_name" value="Williams"/>
+            <column name="email" value="emily.williams@company.com"/>
+            <column name="phone" value="+1234567893"/>
+            <column name="salary" value="75000.00"/>
+            <column name="hire_date" value="2021-08-05"/>
+            <column name="position" value="HR Specialist"/>
+            <column name="department_id" value="2"/>
+        </insert>
+        <insert tableName="employees">
+            <column name="first_name" value="Michael"/>
+            <column name="last_name" value="Brown"/>
+            <column name="email" value="michael.brown@company.com"/>
+            <column name="phone" value="+1234567894"/>
+            <column name="salary" value="90000.00"/>
+            <column name="hire_date" value="2019-11-30"/>
+            <column name="position" value="HR Manager"/>
+            <column name="department_id" value="2"/>
+        </insert>
+        <insert tableName="employees">
+            <column name="first_name" value="Sarah"/>
+            <column name="last_name" value="Davis"/>
+            <column name="email" value="sarah.davis@company.com"/>
+            <column name="phone" value="+1234567895"/>
+            <column name="salary" value="80000.00"/>
+            <column name="hire_date" value="2022-02-14"/>
+            <column name="position" value="Sales Executive"/>
+            <column name="department_id" value="3"/>
+        </insert>
+        <insert tableName="employees">
+            <column name="first_name" value="David"/>
+            <column name="last_name" value="Miller"/>
+            <column name="email" value="david.miller@company.com"/>
+            <column name="phone" value="+1234567896"/>
+            <column name="salary" value="120000.00"/>
+            <column name="hire_date" value="2017-05-22"/>
+            <column name="position" value="Sales Director"/>
+            <column name="department_id" value="3"/>
+        </insert>
+        <insert tableName="employees">
+            <column name="first_name" value="Lisa"/>
+            <column name="last_name" value="Wilson"/>
+            <column name="email" value="lisa.wilson@company.com"/>
+            <column name="phone" value="+1234567897"/>
+            <column name="salary" value="70000.00"/>
+            <column name="hire_date" value="2023-01-10"/>
+            <column name="position" value="Marketing Coordinator"/>
+            <column name="department_id" value="4"/>
+        </insert>
+        <insert tableName="employees">
+            <column name="first_name" value="James"/>
+            <column name="last_name" value="Taylor"/>
+            <column name="email" value="james.taylor@company.com"/>
+            <column name="phone" value="+1234567898"/>
+            <column name="salary" value="95000.00"/>
+            <column name="hire_date" value="2020-09-18"/>
+            <column name="position" value="Financial Analyst"/>
+            <column name="department_id" value="5"/>
+        </insert>
+        <insert tableName="employees">
+            <column name="first_name" value="Jennifer"/>
+            <column name="last_name" value="Anderson"/>
+            <column name="email" value="jennifer.anderson@company.com"/>
+            <column name="phone" value="+1234567899"/>
+            <column name="salary" value="105000.00"/>
+            <column name="hire_date" value="2018-07-03"/>
+            <column name="position" value="Finance Manager"/>
+            <column name="department_id" value="5"/>
+        </insert>
+    </changeSet>
+
+    <!-- Update Employees to set managers (self-referencing) -->
+    <changeSet id="update-employee-managers" author="your-name">
+        <update tableName="employees">
+            <column name="manager_id" value="3"/>
+            <where>id IN (1, 2)</where>
+        </update>
+        <update tableName="employees">
+            <column name="manager_id" value="5"/>
+            <where>id = 4</where>
+        </update>
+        <update tableName="employees">
+            <column name="manager_id" value="7"/>
+            <where>id = 6</where>
+        </update>
+        <update tableName="employees">
+            <column name="manager_id" value="10"/>
+            <where>id = 9</where>
+        </update>
+    </changeSet>
+
+    <!-- Insert Employee-Projects (Many-to-Many relationships) -->
+    <changeSet id="insert-employee-projects" author="your-name">
+        <!-- E-Commerce Platform Team -->
+        <insert tableName="employee_projects">
+            <column name="employee_id" value="1"/>
+            <column name="project_id" value="1"/>
+            <column name="role" value="Backend Developer"/>
+            <column name="hours_per_week" value="30"/>
+        </insert>
+        <insert tableName="employee_projects">
+            <column name="employee_id" value="2"/>
+            <column name="project_id" value="1"/>
+            <column name="role" value="Frontend Developer"/>
+            <column name="hours_per_week" value="25"/>
+        </insert>
+        <insert tableName="employee_projects">
+            <column name="employee_id" value="3"/>
+            <column name="project_id" value="1"/>
+            <column name="role" value="Project Lead"/>
+            <column name="hours_per_week" value="20"/>
+        </insert>
+
+        <!-- Mobile App Development Team -->
+        <insert tableName="employee_projects">
+            <column name="employee_id" value="1"/>
+            <column name="project_id" value="2"/>
+            <column name="role" value="Android Developer"/>
+            <column name="hours_per_week" value="15"/>
+        </insert>
+        <insert tableName="employee_projects">
+            <column name="employee_id" value="2"/>
+            <column name="project_id" value="2"/>
+            <column name="role" value="iOS Developer"/>
+            <column name="hours_per_week" value="20"/>
+        </insert>
+
+        <!-- CRM System Upgrade Team -->
+        <insert tableName="employee_projects">
+            <column name="employee_id" value="6"/>
+            <column name="project_id" value="3"/>
+            <column name="role" value="Business Analyst"/>
+            <column name="hours_per_week" value="25"/>
+        </insert>
+        <insert tableName="employee_projects">
+            <column name="employee_id" value="7"/>
+            <column name="project_id" value="3"/>
+            <column name="role" value="Project Sponsor"/>
+            <column name="hours_per_week" value="10"/>
+        </insert>
+
+        <!-- Data Analytics Platform Team -->
+        <insert tableName="employee_projects">
+            <column name="employee_id" value="9"/>
+            <column name="project_id" value="4"/>
+            <column name="role" value="Data Analyst"/>
+            <column name="hours_per_week" value="35"/>
+        </insert>
+        <insert tableName="employee_projects">
+            <column name="employee_id" value="10"/>
+            <column name="project_id" value="4"/>
+            <column name="role" value="Financial Controller"/>
+            <column name="hours_per_week" value="15"/>
+        </insert>
+
+        <!-- Website Redesign Team -->
+        <insert tableName="employee_projects">
+            <column name="employee_id" value="8"/>
+            <column name="project_id" value="5"/>
+            <column name="role" value="UI/UX Designer"/>
+            <column name="hours_per_week" value="40"/>
+        </insert>
+        <insert tableName="employee_projects">
+            <column name="employee_id" value="2"/>
+            <column name="project_id" value="5"/>
+            <column name="role" value="Web Developer"/>
+            <column name="hours_per_week" value="20"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
