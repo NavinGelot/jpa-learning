@@ -5,6 +5,8 @@ import lombok.Data;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "employees")
@@ -52,4 +54,18 @@ public class Employee {
     @ManyToOne
     @JoinColumn(name = "department_id")  // Foreign key column
     private Department department;  // it's an object, not just ID!
+
+    @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<EmployeeProject> projects = new ArrayList<>();
+
+    public void assignToProject(Project project, String role, Integer hoursPerWeek) {
+        EmployeeProject assignment = new EmployeeProject();
+        assignment.setEmployee(this);
+        assignment.setProject(project);
+        assignment.setRole(role);
+        assignment.setHoursPerWeek(hoursPerWeek);
+        assignment.setAssignedDate(LocalDate.now());
+        this.projects.add(assignment);
+        project.getAssignments().add(assignment);
+    }
 }
