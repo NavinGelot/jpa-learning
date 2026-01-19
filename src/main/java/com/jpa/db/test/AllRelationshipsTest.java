@@ -1,9 +1,9 @@
-package com.jpa.jpa_demo.test;
+package com.jpa.db.test;
 
-import com.jpa.jpa_demo.repository.DepartmentRepository;
-import com.jpa.jpa_demo.repository.EmployeeProjectRepository;
-import com.jpa.jpa_demo.repository.EmployeeRepository;
-import com.jpa.jpa_demo.repository.ProjectRepository;
+import com.jpa.db.repository.DepartmentRepository;
+import com.jpa.db.repository.EmployeeProjectRepository;
+import com.jpa.db.repository.EmployeeRepository;
+import com.jpa.db.repository.ProjectRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

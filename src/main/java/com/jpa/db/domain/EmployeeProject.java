@@ -1,4 +1,4 @@
-package com.jpa.jpa_demo.domain;
+package com.jpa.db.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;

@@ -1,6 +1,6 @@
-package com.jpa.jpa_demo.repository;
+package com.jpa.db.repository;
 
-import com.jpa.jpa_demo.domain.Employee;
+import com.jpa.db.domain.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

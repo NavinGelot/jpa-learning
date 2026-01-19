@@ -1,6 +1,6 @@
-package com.jpa.jpa_demo.repository;
+package com.jpa.db.repository;
 
-import com.jpa.jpa_demo.domain.Department;
+import com.jpa.db.domain.Department;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
